@@ -27,8 +27,8 @@ public class SetGroupMeetingTimeActivity extends AppCompatActivity {
     private TextView mCreateGroupButton;
 
     //Meeting Time
-    EditText mDate;
-    EditText mTime;
+    TextView mDate;
+    TextView mTime;
 
     private String mGroupID;
 
