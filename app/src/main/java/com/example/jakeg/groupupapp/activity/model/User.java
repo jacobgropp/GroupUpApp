@@ -1,5 +1,6 @@
 package com.example.jakeg.groupupapp.activity.model;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 
 import java.util.UUID;
@@ -15,7 +16,7 @@ public class User {
     private String emailAddress;
     private String phoneNumber;
 
-    private Image userPicture;
+    private Drawable userPicture;
 
     //CONSTRUCTOR
     public User(String username, String emailAddress, String phoneNumber) {
@@ -43,7 +44,7 @@ public class User {
         return phoneNumber;
     }
 
-    public Image getUserPicture() {
+    public Drawable getUserPicture() {
         return userPicture;
     }
 
@@ -65,7 +66,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setUserPicture(Image userPicture) {
+    public void setUserPicture(Drawable userPicture) {
         this.userPicture = userPicture;
     }
 }

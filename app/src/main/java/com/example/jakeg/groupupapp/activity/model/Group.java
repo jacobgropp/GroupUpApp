@@ -1,8 +1,10 @@
 package com.example.jakeg.groupupapp.activity.model;
 
-import android.media.Image;
+import android.graphics.drawable.Drawable;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -14,14 +16,16 @@ public class Group {
     private String groupID;
     private String name;
     private String description;
-    private Image groupImage;
+    private String nextMeetUp;
+    private Drawable groupImage;
 
-    private List<User> groupMembers;
+    private Map<String, User> groupMembers = new HashMap<String, User>();
 
     //CONSTRUCTOR
     public Group(String name){
         this.groupID = UUID.randomUUID().toString();
         this.name = name;
+        this.description = "";
     }
 
     //GETTERS
@@ -38,12 +42,20 @@ public class Group {
         return description;
     }
 
-    public Image getGroupImage() {
+    public String getNextMeetUp() {
+        return nextMeetUp;
+    }
+
+    public Drawable getGroupImage() {
         return groupImage;
     }
 
-    public List<User> getGroupMembers() {
-        return groupMembers;
+    public ArrayList<User> getGroupMembers() {
+        return new ArrayList<>(groupMembers.values());
+    }
+
+    public User getGroupMember(String userID){
+        return groupMembers.get(userID);
     }
 
     //SETTERS
@@ -60,11 +72,16 @@ public class Group {
         this.description = description;
     }
 
-    public void setGroupImage(Image groupImage) {
+    public void setNextMeetUp(String nextMeetUp) {
+        this.nextMeetUp = nextMeetUp;
+    }
+
+    public void setGroupImage(Drawable groupImage) {
         this.groupImage = groupImage;
     }
 
-    public void setGroupMembers(List<User> groupMembers) {
-        this.groupMembers = groupMembers;
+    public void addGroupMember(User groupMember) {
+        this.groupMembers.put(groupMember.getUserID(), groupMember);
     }
+
 }

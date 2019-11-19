@@ -4,7 +4,7 @@
     <string name="next">Next</string>
 
     <!--NameGroupActivity Strings-->
-    <string name="group_name">Name your group</string>
+    <string name="group_name_instructions">Name your group</string>
     <string name="group_description">Describe your group (optional)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -18,5 +18,20 @@
 
     <string name="action_settings">Settings</string>
     <string name="groups">Groups</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pick_time">Pick Time</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="set_a_group_meeting_time">Set a Group Meeting Time</string>
+    <string name="pick_a_date">Pick a date</string>
+    <string name="pick_a_time">Pick a time</string>
+    <string name="create_group">Create Group</string>
+    <string name="joe_allen">Joe Allen</string>
+    <string name="katie_allen">Katie Allen</string>
+    <string name="morgan_blake">Morgan Blake</string>
+    <string name="paul_keith">Paul Keith</string>
+    <string name="jessica_taylor">Jessica Taylor</string>
+    <string name="alan_tuttle">Alan Tuttle</string>
 
 </resources>

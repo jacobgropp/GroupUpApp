@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jakeg.groupupapp.activity.activity.GroupListActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/add_contacts_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/add_contacts_layout">
+
+        <ImageView
+            android:id="@+id/add_contacts_back_button"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/add_contacts_next_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="10"
+            android:text="@string/next"
+            android:textAlignment="textEnd"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/add_contacts_back_button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_contacts_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/add_contact_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="center"
+            android:text="Add Group Members"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="389dp"
+            android:layout_height="534dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/joe_allen_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/joe_allen" />
+
+                    <TextView
+                        android:id="@+id/joe_allen"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/joe_allen"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_joe_allen"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/katie_allen_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/katie_allen" />
+
+                    <TextView
+                        android:id="@+id/katie_allen"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/katie_allen"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_katie_allen"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/morgan_blake_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/morgan_blake"/>
+
+                    <TextView
+                        android:id="@+id/morgan_blake"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/morgan_blake"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_morgan_blake"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/paul_keith_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/paul_keith" />
+
+                    <TextView
+                        android:id="@+id/paul_keith"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/paul_keith"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_paul_keith"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/jessica_taylor_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/jessica_taylor" />
+
+                    <TextView
+                        android:id="@+id/jessica_taylor"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/jessica_taylor"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_jessica_taylor"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/alan_tuttle_contact"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/alan_tuttle" />
+
+                    <TextView
+                        android:id="@+id/alan_tuttle"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/alan_tuttle"
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_alan_tuttle"
+                        android:layout_width="1dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
