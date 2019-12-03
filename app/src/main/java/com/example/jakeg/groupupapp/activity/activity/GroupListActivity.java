@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.example.jakeg.groupupapp.R;
 import com.example.jakeg.groupupapp.activity.model.Group;
+import com.example.jakeg.groupupapp.activity.model.GroupMember;
 import com.example.jakeg.groupupapp.activity.model.User;
 
 import java.util.ArrayList;
@@ -81,11 +82,11 @@ public class GroupListActivity extends AppCompatActivity
         });
 
         //Fill the list view
-        if(getModel().getGroups().isEmpty()){
+        if(getModel().getUser().getGroups().isEmpty()){
             generateGroups();
         }
 
-        groupListItems = getModel().getGroups();
+        groupListItems = getModel().getUser().getGroups();
         ArrayAdapter<Group> groupListAdapter = new GroupArrayAdapter(this, 0, groupListItems);
 
         ListView mGroupList = findViewById(R.id.group_list);
@@ -193,80 +194,108 @@ public class GroupListActivity extends AppCompatActivity
     //Quick and dirty hardcode to generate some groups on startup for testing and demoing purposes.
     public void generateGroups(){
         //Generate fake users for groups.
-        User john_smith = new User("John Smith", "john.smith@gmail.com", "+1 (208) 956-2533");
+        GroupMember john_smith = new GroupMember("John Smith", "john.smith@gmail.com", "+1 (208) 956-2533");
         john_smith.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.john_smith, null));
-        User joe_allen = new User("Joe Allen", "joe.allen@gmail.com", "+1 (487) 978-6174");
+        getModel().getUser().setUserGroupMember(john_smith);
+        GroupMember joe_allen = new GroupMember("Joe Allen", "joe.allen@gmail.com", "+1 (487) 978-6174");
         joe_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.joe_allen, null));
-        User katie_allen = new User("Katie Allen", "katie.allen@gmail.com", "+1 (298) 896-5590");
+        GroupMember katie_allen = new GroupMember("Katie Allen", "katie.allen@gmail.com", "+1 (298) 896-5590");
         katie_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.katie_allen, null));
-        User morgan_blake = new User("Morgan Blake", "morgan.blake@gmail.com", "+1 (274) 738-7504");
+        GroupMember morgan_blake = new GroupMember("Morgan Blake", "morgan.blake@gmail.com", "+1 (274) 738-7504");
         morgan_blake.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.morgan_blake, null));
-        User paul_keith = new User("Paul Keith", "paul.keith@gmail.com", "+1 (444) 243-8347");
+        GroupMember paul_keith = new GroupMember("Paul Keith", "paul.keith@gmail.com", "+1 (444) 243-8347");
         paul_keith.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.paul_keith, null));
-        User jessica_taylor = new User("Jessica Taylor", "jessica.taylor@gmail.com", "+1 (424) 900-4445");
+        GroupMember jessica_taylor = new GroupMember("Jessica Taylor", "jessica.taylor@gmail.com", "+1 (424) 900-4445");
         jessica_taylor.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.jessica_taylor, null));
-        User alan_tuttle = new User("Alan Tuttle", "alan.tuttle@gmail.com", "+1 (908) 305-2090");
+        GroupMember alan_tuttle = new GroupMember("Alan Tuttle", "alan.tuttle@gmail.com", "+1 (908) 305-2090");
         alan_tuttle.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.alan_tuttle, null));
 
         //Create dinner group
         Group dinner_group = new Group("Dinner Group");
         dinner_group.setDescription("Everybody join up for some weekly grub!");
         dinner_group.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.dinner_group_img, null));
+        john_smith.setAttending(false);
         dinner_group.addGroupMember(john_smith);
+        joe_allen.setAttending(false);
         dinner_group.addGroupMember(joe_allen);
+        katie_allen.setAttending(true);
         dinner_group.addGroupMember(katie_allen);
+        morgan_blake.setAttending(true);
         dinner_group.addGroupMember(morgan_blake);
+        morgan_blake.setAttending(true);
         dinner_group.addGroupMember(paul_keith);
+        jessica_taylor.setAttending(false);
         dinner_group.addGroupMember(jessica_taylor);
+        alan_tuttle.setAttending(true);
         dinner_group.addGroupMember(alan_tuttle);
         dinner_group.setNextMeetUp("November 20, 2019\n at 7:30PM");
-        getModel().addGroup(dinner_group);
+        getModel().getUser().addGroup(dinner_group);
 
         //Create movie night group
         Group movie_night_group = new Group("Movie Night");
         movie_night_group.setDescription("Going through the top A5 films!");
         movie_night_group.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.movie_night_img, null));
+        john_smith.setAttending(false);
         movie_night_group.addGroupMember(john_smith);
+        joe_allen.setAttending(true);
         movie_night_group.addGroupMember(joe_allen);
+        katie_allen.setAttending(true);
         movie_night_group.addGroupMember(katie_allen);
+        morgan_blake.setAttending(false);
         movie_night_group.addGroupMember(morgan_blake);
+        paul_keith.setAttending(true);
         movie_night_group.addGroupMember(paul_keith);
+        jessica_taylor.setAttending(false);
         movie_night_group.addGroupMember(jessica_taylor);
         movie_night_group.setNextMeetUp("November 21, 2019\n at 8:00PM");
-        getModel().addGroup(movie_night_group);
+        getModel().getUser().addGroup(movie_night_group);
 
         //Create dnd group
         Group dnd_group = new Group("DnD Group");
         dnd_group.setDescription("+5 to wisdom and perception for joining!");
         dnd_group.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.dnd_group_img, null));
+        john_smith.setAttending(true);
         dnd_group.addGroupMember(john_smith);
+        joe_allen.setAttending(true);
         dnd_group.addGroupMember(joe_allen);
+        katie_allen.setAttending(true);
         dnd_group.addGroupMember(katie_allen);
+        paul_keith.setAttending(false);
         dnd_group.addGroupMember(paul_keith);
+        alan_tuttle.setAttending(false);
         dnd_group.addGroupMember(alan_tuttle);
         dnd_group.setNextMeetUp("November 23, 2019\n at 6:00PM");
-        getModel().addGroup(dnd_group);
+        getModel().getUser().addGroup(dnd_group);
 
         Group study_group = new Group("Study Group");
         study_group.setDescription("Study group for BIO 100");
         study_group.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.study_group_img, null));
+        john_smith.setAttending(true);
         study_group.addGroupMember(john_smith);
+        joe_allen.setAttending(true);
         study_group.addGroupMember(joe_allen);
+        katie_allen.setAttending(false);
         study_group.addGroupMember(katie_allen);
+        morgan_blake.setAttending(true);
         study_group.addGroupMember(morgan_blake);
+        jessica_taylor.setAttending(false);
         study_group.addGroupMember(jessica_taylor);
         study_group.setNextMeetUp("November 25, 2019\n at 5:00PM");
-        getModel().addGroup(study_group);
+        getModel().getUser().addGroup(study_group);
 
         Group wow_group = new Group("WoW Team");
         wow_group.setDescription("Let's pwn some noobs.");
         wow_group.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.wow_group_img, null));
+        john_smith.setAttending(true);
         wow_group.addGroupMember(john_smith);
+        joe_allen.setAttending(true);
         wow_group.addGroupMember(joe_allen);
+        paul_keith.setAttending(true);
         wow_group.addGroupMember(paul_keith);
+        jessica_taylor.setAttending(true);
         wow_group.addGroupMember(jessica_taylor);
         wow_group.setNextMeetUp("November 26, 2019\n at 8:00PM");
-        getModel().addGroup(wow_group);
+        getModel().getUser().addGroup(wow_group);
     }
 
 }

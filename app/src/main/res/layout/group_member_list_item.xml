@@ -31,6 +31,26 @@
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Attending?"/>
+            <TextView
+                android:id="@+id/group_member_item_attendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Yes/No"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

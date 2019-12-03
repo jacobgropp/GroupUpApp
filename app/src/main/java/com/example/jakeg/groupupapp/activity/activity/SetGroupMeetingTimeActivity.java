@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -160,7 +159,7 @@ public class SetGroupMeetingTimeActivity extends AppCompatActivity {
         }
         else{
             String meetup = mDate.getText().toString() + "\n at " + mTime.getText().toString();
-            getModel().getGroup(mGroupID).setNextMeetUp(meetup);
+            getModel().getUser().getGroup(mGroupID).setNextMeetUp(meetup);
             return true;
         }
     }

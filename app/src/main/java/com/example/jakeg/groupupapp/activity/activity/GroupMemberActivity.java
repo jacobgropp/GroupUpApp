@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.jakeg.groupupapp.R;
 import com.example.jakeg.groupupapp.activity.model.Group;
-import com.example.jakeg.groupupapp.activity.model.User;
+import com.example.jakeg.groupupapp.activity.model.GroupMember;
 
 import static com.example.jakeg.groupupapp.activity.model.Model.getModel;
 
@@ -30,22 +30,22 @@ public class GroupMemberActivity extends AppCompatActivity {
 
         //Get group from ID
         String groupID = getIntent().getStringExtra("groupID");
-        Group group = getModel().getGroup(groupID);
+        Group group = getModel().getUser().getGroup(groupID);
 
-        //Get user from ID
-        String userID = getIntent().getStringExtra("userID");
-        User user = group.getGroupMember(userID);
+        //Get groupMember from ID
+        String userID = getIntent().getStringExtra("groupMemberID");
+        GroupMember groupMember = group.getGroupMember(userID);
 
         TextView mGroupMemberName = findViewById(R.id.group_member_name);
-        mGroupMemberName.setText(user.getUsername());
+        mGroupMemberName.setText(groupMember.getName());
 
         ImageView mGroupMemberImage = findViewById(R.id.group_member_image);
-        mGroupMemberImage.setImageDrawable(user.getUserPicture());
+        mGroupMemberImage.setImageDrawable(groupMember.getUserPicture());
 
         TextView mGroupMemberEmail = findViewById(R.id.group_member_email_address);
-        mGroupMemberEmail.setText(user.getEmailAddress());
+        mGroupMemberEmail.setText(groupMember.getEmailAddress());
 
         TextView mGroupMemberPhone = findViewById(R.id.group_member_phone_number);
-        mGroupMemberPhone.setText(user.getPhoneNumber());
+        mGroupMemberPhone.setText(groupMember.getPhoneNumber());
     }
 }

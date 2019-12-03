@@ -1,8 +1,5 @@
 package com.example.jakeg.groupupapp.activity.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Observable;
 
 /**
@@ -20,28 +17,8 @@ public class Model extends Observable {
         return model;
     }
 
-    public Boolean userChangeListener;
-
     //Hardcoded for now until database is added.
     public User user = new User("John Smith", "john.smith@gmail.com", "+1 (208) 956-2533");
-
-    public Map<String, Group> groups = new HashMap<String, Group>();
-
-    public void addGroup(Group group){
-        groups.put(group.getGroupID(), group);
-    }
-
-    public void removeGroup(String groupID){
-        groups.remove(groupID);
-    }
-
-    public Group getGroup(String groupID){
-        return groups.get(groupID);
-    }
-
-    public ArrayList<Group> getGroups(){
-        return new ArrayList(groups.values());
-    }
 
     public User getUser(){
         return user;

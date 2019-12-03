@@ -19,7 +19,7 @@ public class Group {
     private String nextMeetUp;
     private Drawable groupImage;
 
-    private Map<String, User> groupMembers = new HashMap<String, User>();
+    private Map<String, GroupMember> groupMembers = new HashMap<String, GroupMember>();
 
     //CONSTRUCTOR
     public Group(String name){
@@ -50,11 +50,11 @@ public class Group {
         return groupImage;
     }
 
-    public ArrayList<User> getGroupMembers() {
+    public ArrayList<GroupMember> getGroupMembers() {
         return new ArrayList<>(groupMembers.values());
     }
 
-    public User getGroupMember(String userID){
+    public GroupMember getGroupMember(String userID){
         return groupMembers.get(userID);
     }
 
@@ -80,8 +80,8 @@ public class Group {
         this.groupImage = groupImage;
     }
 
-    public void addGroupMember(User groupMember) {
-        this.groupMembers.put(groupMember.getUserID(), groupMember);
+    public void addGroupMember(GroupMember groupMember) {
+        this.groupMembers.put(groupMember.getGroupMemberID(), groupMember);
     }
 
 }

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.jakeg.groupupapp.R;
 import com.example.jakeg.groupupapp.activity.model.Group;
-import com.example.jakeg.groupupapp.activity.model.User;
+import com.example.jakeg.groupupapp.activity.model.GroupMember;
 
 import static com.example.jakeg.groupupapp.activity.model.Model.getModel;
 
@@ -40,13 +40,19 @@ public class AddContactsToGroupActivity extends AppCompatActivity {
         String newGroupDescription = getIntent().getExtras().getString("Group Description");
 
         mNewGroup = new Group(newGroupName);
+
+        //First add the current user to the new group.
+
+        mNewGroup.addGroupMember(getModel().getUser().getUserGroupMember());
+
+        //Add group description
         mNewGroup.setDescription(newGroupDescription);
 
         mBackButton = (ImageView) findViewById(R.id.add_contacts_back_button);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getModel().removeGroup(mNewGroup.getGroupID());
+                getModel().getUser().removeGroup(mNewGroup.getGroupID());
                 finish();
             }
         });
@@ -57,7 +63,7 @@ public class AddContactsToGroupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(addGroupMembers()){
                     mNewGroup.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.group, null));
-                    getModel().addGroup(mNewGroup);
+                    getModel().getUser().addGroup(mNewGroup);
                     startNextStep(SetGroupMeetingTimeActivity.class);
                 }
             }
@@ -73,33 +79,35 @@ public class AddContactsToGroupActivity extends AppCompatActivity {
     }
 
     private Boolean addGroupMembers(){
+
+        //Hard coded function for prototyping purposes
         if(mCheckBoxJoeAllen.isChecked()){
-            User joe_allen = new User("Joe Allen", "joe.allen@gmail.com", "+1 (487) 978-6174");
+            GroupMember joe_allen = new GroupMember("Joe Allen", "joe.allen@gmail.com", "+1 (487) 978-6174");
             joe_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.joe_allen, null));
             mNewGroup.addGroupMember(joe_allen);
         }
         if(mCheckBoxKatieAllen.isChecked()){
-            User katie_allen = new User("Katie Allen", "katie.allen@gmail.com", "+1 (298) 896-5590");
+            GroupMember katie_allen = new GroupMember("Katie Allen", "katie.allen@gmail.com", "+1 (298) 896-5590");
             katie_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.katie_allen, null));
             mNewGroup.addGroupMember(katie_allen);
         }
         if(mCheckBoxMorganBlake.isChecked()){
-            User morgan_blake = new User("Morgan Blake", "morgan.blake@gmail.com", "+1 (274) 738-7504");
+            GroupMember morgan_blake = new GroupMember("Morgan Blake", "morgan.blake@gmail.com", "+1 (274) 738-7504");
             morgan_blake.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.morgan_blake, null));
             mNewGroup.addGroupMember(morgan_blake);
         }
         if(mCheckBoxPaulKeith.isChecked()){
-            User paul_keith = new User("Paul Keith", "paul.keith@gmail.com", "+1 (444) 243-8347");
+            GroupMember paul_keith = new GroupMember("Paul Keith", "paul.keith@gmail.com", "+1 (444) 243-8347");
             paul_keith.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.paul_keith, null));
             mNewGroup.addGroupMember(paul_keith);
         }
         if(mCheckBoxJessicaTaylor.isChecked()){
-            User jessica_taylor = new User("Jessica Taylor", "jessica.taylor@gmail.com", "+1 (424) 900-4445");
+            GroupMember jessica_taylor = new GroupMember("Jessica Taylor", "jessica.taylor@gmail.com", "+1 (424) 900-4445");
             jessica_taylor.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.jessica_taylor, null));
             mNewGroup.addGroupMember(jessica_taylor);
         }
         if(mCheckBoxAlanTuttle.isChecked()){
-            User alan_tuttle = new User("Alan Tuttle", "alan.tuttle@gmail.com", "+1 (908) 305-2090");
+            GroupMember alan_tuttle = new GroupMember("Alan Tuttle", "alan.tuttle@gmail.com", "+1 (908) 305-2090");
             alan_tuttle.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.alan_tuttle, null));
             mNewGroup.addGroupMember(alan_tuttle);
         }

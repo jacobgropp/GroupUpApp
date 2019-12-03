@@ -5,12 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.jakeg.groupupapp.R;
+import com.example.jakeg.groupupapp.activity.model.GroupMember;
 import com.example.jakeg.groupupapp.activity.model.User;
 
 import static com.example.jakeg.groupupapp.activity.model.Model.getModel;

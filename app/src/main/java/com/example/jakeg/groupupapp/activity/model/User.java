@@ -1,16 +1,13 @@
 package com.example.jakeg.groupupapp.activity.model;
 
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
-/**
- * Created by jakeg on 11/15/2019.
- */
-
 public class User {
-
     private String userID;
     private String username;
     private String emailAddress;
@@ -18,12 +15,34 @@ public class User {
 
     private Drawable userPicture;
 
+    private Map<String, Group> groups = new HashMap<String, Group>();
+
+    private GroupMember userGroupMember;
+
     //CONSTRUCTOR
     public User(String username, String emailAddress, String phoneNumber) {
         this.userID = UUID.randomUUID().toString();
         this.username = username;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
+        this.userGroupMember = new GroupMember(username, emailAddress, phoneNumber);
+    }
+
+    //GROUP FUNCTIONS
+    public void addGroup(Group group){
+        groups.put(group.getGroupID(), group);
+    }
+
+    public void removeGroup(String groupID){
+        groups.remove(groupID);
+    }
+
+    public Group getGroup(String groupID){
+        return groups.get(groupID);
+    }
+
+    public ArrayList<Group> getGroups(){
+        return new ArrayList(groups.values());
     }
 
     //GETTERS
@@ -48,6 +67,10 @@ public class User {
         return userPicture;
     }
 
+    public GroupMember getUserGroupMember() {
+        return userGroupMember;
+    }
+
     //SETTERS
 
     public void setUserID(String userID) {
@@ -69,5 +92,12 @@ public class User {
     public void setUserPicture(Drawable userPicture) {
         this.userPicture = userPicture;
     }
-}
 
+    public void setGroups(Map<String, Group> groups) {
+        this.groups = groups;
+    }
+
+    public void setUserGroupMember(GroupMember userGroupMember) {
+        this.userGroupMember = userGroupMember;
+    }
+}
