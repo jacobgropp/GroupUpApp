@@ -16,22 +16,22 @@
 
         <ImageView
             android:id="@+id/name_group_back_button"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="24dp"
+            android:layout_height="32dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/back_button" />
 
         <TextView
             android:id="@+id/name_group_next_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="24dp"
+            android:layout_height="32dp"
             android:layout_weight="10"
             android:textAlignment="textEnd"
             android:layout_gravity="end"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="@string/next"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
     </LinearLayout>
 
     <TextView
@@ -61,21 +61,7 @@
             android:text="Add image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-        <TextView
-            android:id="@+id/myImageViewText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/new_group_image"
-            android:layout_alignTop="@id/new_group_image"
-            android:layout_alignRight="@id/new_group_image"
-            android:layout_alignBottom="@id/new_group_image"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="Click to\nadd image"
-            android:textSize="18sp"
-            android:textColor="#000000" />
+            android:src="@drawable/add_image" />
 
     </RelativeLayout>
 

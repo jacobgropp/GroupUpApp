@@ -100,4 +100,6 @@ public class User {
     public void setUserGroupMember(GroupMember userGroupMember) {
         this.userGroupMember = userGroupMember;
     }
+
+
 }

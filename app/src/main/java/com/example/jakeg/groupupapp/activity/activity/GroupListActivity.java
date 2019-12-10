@@ -228,7 +228,7 @@ public class GroupListActivity extends AppCompatActivity
         dinner_group.addGroupMember(jessica_taylor);
         alan_tuttle.setAttending(true);
         dinner_group.addGroupMember(alan_tuttle);
-        dinner_group.setNextMeetUp("November 20, 2019\n at 7:30PM");
+        dinner_group.setNextMeetUp("November 20, 2019\nat 7:30PM");
         getModel().getUser().addGroup(dinner_group);
 
         //Create movie night group
@@ -247,7 +247,7 @@ public class GroupListActivity extends AppCompatActivity
         movie_night_group.addGroupMember(paul_keith);
         jessica_taylor.setAttending(false);
         movie_night_group.addGroupMember(jessica_taylor);
-        movie_night_group.setNextMeetUp("November 21, 2019\n at 8:00PM");
+        movie_night_group.setNextMeetUp("November 21, 2019\nat 8:00PM");
         getModel().getUser().addGroup(movie_night_group);
 
         //Create dnd group
@@ -264,7 +264,7 @@ public class GroupListActivity extends AppCompatActivity
         dnd_group.addGroupMember(paul_keith);
         alan_tuttle.setAttending(false);
         dnd_group.addGroupMember(alan_tuttle);
-        dnd_group.setNextMeetUp("November 23, 2019\n at 6:00PM");
+        dnd_group.setNextMeetUp("November 23, 2019\nat 6:00PM");
         getModel().getUser().addGroup(dnd_group);
 
         Group study_group = new Group("Study Group");
@@ -280,7 +280,7 @@ public class GroupListActivity extends AppCompatActivity
         study_group.addGroupMember(morgan_blake);
         jessica_taylor.setAttending(false);
         study_group.addGroupMember(jessica_taylor);
-        study_group.setNextMeetUp("November 25, 2019\n at 5:00PM");
+        study_group.setNextMeetUp("November 25, 2019\nat 5:00PM");
         getModel().getUser().addGroup(study_group);
 
         Group wow_group = new Group("WoW Team");
@@ -294,7 +294,7 @@ public class GroupListActivity extends AppCompatActivity
         wow_group.addGroupMember(paul_keith);
         jessica_taylor.setAttending(true);
         wow_group.addGroupMember(jessica_taylor);
-        wow_group.setNextMeetUp("November 26, 2019\n at 8:00PM");
+        wow_group.setNextMeetUp("November 26, 2019\nat 8:00PM");
         getModel().getUser().addGroup(wow_group);
     }
 

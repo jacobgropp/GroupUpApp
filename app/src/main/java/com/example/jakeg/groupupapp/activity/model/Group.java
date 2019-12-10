@@ -11,7 +11,7 @@ import java.util.UUID;
  * Created by jakeg on 11/15/2019.
  */
 
-public class Group {
+public class Group implements Comparable<Group> {
 
     private String groupID;
     private String name;
@@ -29,7 +29,6 @@ public class Group {
     }
 
     //GETTERS
-
     public String getGroupID() {
         return groupID;
     }
@@ -59,7 +58,6 @@ public class Group {
     }
 
     //SETTERS
-
     public void setGroupID(String groupID) {
         this.groupID = groupID;
     }
@@ -84,4 +82,9 @@ public class Group {
         this.groupMembers.put(groupMember.getGroupMemberID(), groupMember);
     }
 
+    public int compareTo(Group b){
+        if(this.nextMeetUp.compareTo(b.nextMeetUp) > 0) return 1;
+        if(this.nextMeetUp.compareTo(b.nextMeetUp) < 0) return -1;
+        else return 0;
+    }
 }

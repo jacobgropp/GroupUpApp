@@ -158,7 +158,7 @@ public class SetGroupMeetingTimeActivity extends AppCompatActivity {
             return false;
         }
         else{
-            String meetup = mDate.getText().toString() + "\n at " + mTime.getText().toString();
+            String meetup = mDate.getText().toString() + "\nat " + mTime.getText().toString();
             getModel().getUser().getGroup(mGroupID).setNextMeetUp(meetup);
             return true;
         }
