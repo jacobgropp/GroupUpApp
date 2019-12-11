@@ -28,13 +28,9 @@ public class GroupMemberActivity extends AppCompatActivity {
             }
         });
 
-        //Get group from ID
-        String groupID = getIntent().getStringExtra("groupID");
-        Group group = getModel().getUser().getGroup(groupID);
-
         //Get groupMember from ID
-        String userID = getIntent().getStringExtra("groupMemberID");
-        GroupMember groupMember = group.getGroupMember(userID);
+        String contactID = getIntent().getStringExtra("groupMemberID");
+        GroupMember groupMember = getModel().getUser().getContacts().get(contactID);
 
         TextView mGroupMemberName = findViewById(R.id.group_member_name);
         mGroupMemberName.setText(groupMember.getName());

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.activity.UserProfileActivity"></activity>
+        <activity android:name=".activity.activity.SettingsActivity"></activity>
+        <activity android:name=".activity.activity.ContactsActivity" />
+        <activity android:name=".activity.activity.UserProfileActivity" />
         <activity android:name=".activity.activity.GroupMemberActivity" />
         <activity android:name=".activity.activity.GroupActivity" />
         <activity android:name=".activity.activity.SetGroupMeetingTimeActivity" />

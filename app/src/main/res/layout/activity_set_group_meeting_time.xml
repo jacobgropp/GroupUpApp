@@ -60,10 +60,9 @@
             android:layout_width="match_parent"
             android:layout_weight="5"
             android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="46dp"
             android:hint="@string/pick_a_date"
             android:textSize="24sp"
-            android:textColor="@color/black"
             android:layout_gravity="start"
             android:textAlignment="textStart" />
     </LinearLayout>
@@ -79,10 +78,9 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_marginRight="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="46dp"
             android:hint="@string/pick_a_time"
             android:textSize="24sp"
-            android:textColor="@color/black"
             android:layout_gravity="start"
             android:textAlignment="textStart" />
 
@@ -95,7 +93,7 @@
         android:layout_gravity="left"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="42dp"
         android:layout_marginRight="24dp"
         android:padding="12dp"
         android:text="Create Group" />

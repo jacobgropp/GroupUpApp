@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -15,7 +16,9 @@ public class User {
 
     private Drawable userPicture;
 
-    private Map<String, Group> groups = new HashMap<String, Group>();
+    private Map<String, Group> groups = new HashMap<>();
+
+    private Map<String, GroupMember> contacts = new HashMap<>();
 
     private GroupMember userGroupMember;
 
@@ -71,6 +74,10 @@ public class User {
         return userGroupMember;
     }
 
+    public Map<String, GroupMember> getContacts() {
+        return contacts;
+    }
+
     //SETTERS
 
     public void setUserID(String userID) {
@@ -101,5 +108,7 @@ public class User {
         this.userGroupMember = userGroupMember;
     }
 
-
+    public void setContacts(Map<String, GroupMember> contacts) {
+        this.contacts = contacts;
+    }
 }

@@ -82,5 +82,6 @@ public class GroupMember {
             this.attending = "No";
         }
     }
+
 }
 

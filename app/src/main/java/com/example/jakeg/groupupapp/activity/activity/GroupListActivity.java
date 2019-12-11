@@ -77,7 +77,7 @@ public class GroupListActivity extends AppCompatActivity
         mAddGroupButton.setOnClickListener(new ImageView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNewGroup();
+                createNewGroup(NameGroupActivity.class);
             }
         });
 
@@ -121,8 +121,11 @@ public class GroupListActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_groups) {
-            // Handle the camera action
+        if (id == R.id.nav_contacts) {
+            createNewGroup(ContactsActivity.class);
+        }
+        else if (id == R.id.nav_settings) {
+            createNewGroup(SettingsActivity.class);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -149,8 +152,8 @@ public class GroupListActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    private void createNewGroup(){
-        Intent intent = new Intent(this, NameGroupActivity.class);
+    private void createNewGroup(Class givenClass){
+        Intent intent = new Intent(this, givenClass);
         startActivity(intent);
     }
 
@@ -197,18 +200,31 @@ public class GroupListActivity extends AppCompatActivity
         GroupMember john_smith = new GroupMember("John Smith", "john.smith@gmail.com", "+1 (208) 956-2533");
         john_smith.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.john_smith, null));
         getModel().getUser().setUserGroupMember(john_smith);
+
+
         GroupMember joe_allen = new GroupMember("Joe Allen", "joe.allen@gmail.com", "+1 (487) 978-6174");
         joe_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.joe_allen, null));
+        getModel().getUser().getContacts().put(joe_allen.getGroupMemberID(), joe_allen);
+
         GroupMember katie_allen = new GroupMember("Katie Allen", "katie.allen@gmail.com", "+1 (298) 896-5590");
         katie_allen.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.katie_allen, null));
+        getModel().getUser().getContacts().put(katie_allen.getGroupMemberID(), katie_allen);
+
         GroupMember morgan_blake = new GroupMember("Morgan Blake", "morgan.blake@gmail.com", "+1 (274) 738-7504");
         morgan_blake.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.morgan_blake, null));
+        getModel().getUser().getContacts().put(morgan_blake.getGroupMemberID(), morgan_blake);
+
         GroupMember paul_keith = new GroupMember("Paul Keith", "paul.keith@gmail.com", "+1 (444) 243-8347");
         paul_keith.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.paul_keith, null));
+        getModel().getUser().getContacts().put(paul_keith.getGroupMemberID(), paul_keith);
+
         GroupMember jessica_taylor = new GroupMember("Jessica Taylor", "jessica.taylor@gmail.com", "+1 (424) 900-4445");
         jessica_taylor.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.jessica_taylor, null));
+        getModel().getUser().getContacts().put(jessica_taylor.getGroupMemberID(), jessica_taylor);
+
         GroupMember alan_tuttle = new GroupMember("Alan Tuttle", "alan.tuttle@gmail.com", "+1 (908) 305-2090");
         alan_tuttle.setUserPicture(ResourcesCompat.getDrawable(getResources(), R.drawable.alan_tuttle, null));
+        getModel().getUser().getContacts().put(alan_tuttle.getGroupMemberID(), alan_tuttle);
 
         //Create dinner group
         Group dinner_group = new Group("Dinner Group");
