@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginRight="18dp"
+    android:layout_marginLeft="18dp"
     android:orientation="horizontal"
 >
 
@@ -24,38 +26,23 @@
 
         <TextView
             android:id="@+id/group_item_name"
-            android:layout_width="98dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="24dp"
             android:text="TextView" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/group_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="24dp"
+        android:textSize="14sp"
+        android:text="@string/time" />
 
-        <TextView
-            android:id="@+id/until_meetup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:textSize="14sp"
-            android:text="@string/next_meeting_on" />
-
-        <TextView
-            android:id="@+id/group_item_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:textSize="14sp"
-            android:text="@string/time" />
-
-    </LinearLayout>
 
 </LinearLayout>

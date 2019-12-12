@@ -55,18 +55,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@id/page_title">
+        app:layout_constraintTop_toTopOf="@id/page_title"
+        android:background="@color/colorPrimary">
 
         <ListView
             android:id="@+id/group_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:divider="@android:color/transparent"
+            android:layout_margin="2dp"
+            android:divider="@color/colorPrimary"
+            android:background="@color/white"
             android:dividerHeight="2dp"/>
 
     </LinearLayout>

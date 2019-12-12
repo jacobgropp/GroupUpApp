@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center">
+
+        <Button
+            android:id="@+id/at_time_of_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="At time of event "
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:id="@+id/five_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="5 minutes before "
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:id="@+id/ten_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="10 minutes before "
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:id="@+id/fifteen_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="15 minutes before "
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:id="@+id/thirty_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="30 minutes before "
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:id="@+id/hour_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1 hour before "
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

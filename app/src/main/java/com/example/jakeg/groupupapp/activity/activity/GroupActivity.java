@@ -1,19 +1,24 @@
 package com.example.jakeg.groupupapp.activity.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jakeg.groupupapp.R;
 import com.example.jakeg.groupupapp.activity.model.Group;
@@ -27,6 +32,8 @@ import static com.example.jakeg.groupupapp.activity.model.Model.getModel;
 public class GroupActivity extends AppCompatActivity {
 
     private ImageView mGroupBackButton;
+
+    private ImageView mAlertButton;
 
     private TextView mGroupName;
     private TextView mGroupDescription;
@@ -54,6 +61,16 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        final Context context = this;
+        //Set up alert button
+        mAlertButton = findViewById(R.id.alert);
+        mAlertButton.setOnClickListener(new ImageView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMyDialog(context);
             }
         });
 
@@ -114,6 +131,90 @@ public class GroupActivity extends AppCompatActivity {
         }
 
         setGroupList();
+    }
+
+    private void showMyDialog(final Context context) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.alert_dialogue);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
+
+        TextView mAtTime = dialog.findViewById(R.id.at_time_of_event);
+        TextView mFiveBefore = dialog.findViewById(R.id.five_before);
+        TextView mTenBefore = dialog.findViewById(R.id.ten_before);
+        TextView mFifteenBefore = dialog.findViewById(R.id.fifteen_before);
+        TextView mThirtyBefore = dialog.findViewById(R.id.thirty_before);
+        TextView mHourBefore = dialog.findViewById(R.id.hour_before);
+
+        mAtTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("0");
+                Toast.makeText(context, "Notification alert has been set to at the time of the event.", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        mFiveBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("5");
+                notificationToastMessage("5 minutes");
+                dialog.dismiss();
+            }
+        });
+
+        mTenBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("10");
+                notificationToastMessage("10 minutes");
+                dialog.dismiss();
+            }
+        });
+
+        mFifteenBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("15");
+                notificationToastMessage("15 minutes");
+                dialog.dismiss();
+            }
+        });
+
+        mThirtyBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("30");
+                notificationToastMessage("30 minutes");
+                dialog.dismiss();
+            }
+        });
+
+        mHourBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                group.setNotification("60");
+                notificationToastMessage("1 hour");
+                dialog.dismiss();
+            }
+        });
+
+        /**
+         * if you want the dialog to be specific size, do the following
+         * this will cover 85% of the screen (85% width and 85% height)
+         */
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.473);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.45);
+        dialog.getWindow().setLayout(dialogWidth, dialogHeight);
+
+        dialog.show();
+    }
+
+    private void notificationToastMessage(String time){
+        Toast.makeText(this, "Notification alert has been set to " + time + " before the event.", Toast.LENGTH_SHORT).show();
     }
 
     private void setGroupList(){

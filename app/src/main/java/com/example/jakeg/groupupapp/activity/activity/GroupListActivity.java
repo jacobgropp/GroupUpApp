@@ -124,9 +124,9 @@ public class GroupListActivity extends AppCompatActivity
         if (id == R.id.nav_contacts) {
             createNewGroup(ContactsActivity.class);
         }
-        else if (id == R.id.nav_settings) {
-            createNewGroup(SettingsActivity.class);
-        }
+//        else if (id == R.id.nav_settings) {
+//            createNewGroup(SettingsActivity.class);
+//        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -194,7 +194,7 @@ public class GroupListActivity extends AppCompatActivity
         }
     }
 
-    //Quick and dirty hardcode to generate some groups on startup for testing and demoing purposes.
+    //Quick and dirty hardcoded data to generate some groups on startup for testing and demoing purposes.
     public void generateGroups(){
         //Generate fake users for groups.
         GroupMember john_smith = new GroupMember("John Smith", "john.smith@gmail.com", "+1 (208) 956-2533");
@@ -244,7 +244,7 @@ public class GroupListActivity extends AppCompatActivity
         dinner_group.addGroupMember(jessica_taylor);
         alan_tuttle.setAttending(true);
         dinner_group.addGroupMember(alan_tuttle);
-        dinner_group.setNextMeetUp("November 20, 2019\nat 7:30PM");
+        dinner_group.setNextMeetUp("December 20, 2019\nat 7:30PM");
         getModel().getUser().addGroup(dinner_group);
 
         //Create movie night group
@@ -263,7 +263,7 @@ public class GroupListActivity extends AppCompatActivity
         movie_night_group.addGroupMember(paul_keith);
         jessica_taylor.setAttending(false);
         movie_night_group.addGroupMember(jessica_taylor);
-        movie_night_group.setNextMeetUp("November 21, 2019\nat 8:00PM");
+        movie_night_group.setNextMeetUp("December 21, 2019\nat 8:00PM");
         getModel().getUser().addGroup(movie_night_group);
 
         //Create dnd group
@@ -280,7 +280,7 @@ public class GroupListActivity extends AppCompatActivity
         dnd_group.addGroupMember(paul_keith);
         alan_tuttle.setAttending(false);
         dnd_group.addGroupMember(alan_tuttle);
-        dnd_group.setNextMeetUp("November 23, 2019\nat 6:00PM");
+        dnd_group.setNextMeetUp("December 23, 2019\nat 6:00PM");
         getModel().getUser().addGroup(dnd_group);
 
         Group study_group = new Group("Study Group");
@@ -296,7 +296,7 @@ public class GroupListActivity extends AppCompatActivity
         study_group.addGroupMember(morgan_blake);
         jessica_taylor.setAttending(false);
         study_group.addGroupMember(jessica_taylor);
-        study_group.setNextMeetUp("November 25, 2019\nat 5:00PM");
+        study_group.setNextMeetUp("December 25, 2019\nat 5:00PM");
         getModel().getUser().addGroup(study_group);
 
         Group wow_group = new Group("WoW Team");
@@ -310,7 +310,7 @@ public class GroupListActivity extends AppCompatActivity
         wow_group.addGroupMember(paul_keith);
         jessica_taylor.setAttending(true);
         wow_group.addGroupMember(jessica_taylor);
-        wow_group.setNextMeetUp("November 26, 2019\nat 8:00PM");
+        wow_group.setNextMeetUp("December 26, 2019\nat 8:00PM");
         getModel().getUser().addGroup(wow_group);
     }
 

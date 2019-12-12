@@ -19,6 +19,8 @@ public class Group implements Comparable<Group> {
     private String nextMeetUp;
     private Drawable groupImage;
 
+    private String notification;
+
     private Map<String, GroupMember> groupMembers = new HashMap<String, GroupMember>();
 
     //CONSTRUCTOR
@@ -57,6 +59,10 @@ public class Group implements Comparable<Group> {
         return groupMembers.get(userID);
     }
 
+    public String getNotification() {
+        return notification;
+    }
+
     //SETTERS
     public void setGroupID(String groupID) {
         this.groupID = groupID;
@@ -80,6 +86,10 @@ public class Group implements Comparable<Group> {
 
     public void addGroupMember(GroupMember groupMember) {
         this.groupMembers.put(groupMember.getGroupMemberID(), groupMember);
+    }
+
+    public void setNotification(String notification) {
+        this.notification = notification;
     }
 
     public int compareTo(Group b){
