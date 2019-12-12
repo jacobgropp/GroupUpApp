@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/set_a_group_meeting_time"
         android:layout_gravity="center"
         android:textSize="30sp"
@@ -52,7 +52,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/in_date"
@@ -62,40 +62,46 @@
             android:layout_marginRight="24dp"
             android:layout_marginLeft="46dp"
             android:hint="@string/pick_a_date"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:layout_gravity="start"
             android:textAlignment="textStart" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/in_time"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="24dp"
             android:layout_marginLeft="46dp"
             android:hint="@string/pick_a_time"
-            android:textSize="24sp"
+            android:textSize="18sp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/set_a_reminder_alert"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="46dp"
+            android:hint="@string/set_a_reminder_alert"
+            android:textSize="18sp"
             android:layout_gravity="start"
             android:textAlignment="textStart" />
 
     </LinearLayout>
 
+
     <Button
         android:id="@+id/create_group_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginRight="24dp"
-        android:padding="12dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        style="?android:attr/borderlessButtonStyle"
         android:text="Create Group" />
 
 </LinearLayout>

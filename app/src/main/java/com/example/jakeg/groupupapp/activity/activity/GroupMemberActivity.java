@@ -1,7 +1,11 @@
 package com.example.jakeg.groupupapp.activity.activity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,7 +45,7 @@ public class GroupMemberActivity extends AppCompatActivity {
         TextView mGroupMemberEmail = findViewById(R.id.group_member_email_address);
         mGroupMemberEmail.setText(groupMember.getEmailAddress());
 
-        TextView mGroupMemberPhone = findViewById(R.id.group_member_phone_number);
+        final TextView mGroupMemberPhone = findViewById(R.id.group_member_phone_number);
         mGroupMemberPhone.setText(groupMember.getPhoneNumber());
     }
 }

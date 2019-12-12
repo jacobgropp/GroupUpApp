@@ -3,7 +3,10 @@ package com.example.jakeg.groupupapp.activity.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,15 +17,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jakeg.groupupapp.R;
+import com.example.jakeg.groupupapp.activity.model.Group;
 
 import java.io.FileNotFoundException;
+
+import static com.example.jakeg.groupupapp.activity.model.Model.getModel;
 
 public class NameGroupActivity extends AppCompatActivity {
 
     private ImageView mGroupImage;
 
+    private Group newGroup = null;
     private EditText mGroupName;
     private EditText mGroupDescription;
+    private Drawable groupImageDrawable = null;
 
     private TextView mNextButton;
     private ImageView mBackButton;
@@ -67,6 +75,9 @@ public class NameGroupActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GroupListActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        if(newGroup != null){
+            getModel().getUser().removeGroup(newGroup.getGroupID());
+        }
         onBackPressed();
     }
 
@@ -80,6 +91,7 @@ public class NameGroupActivity extends AppCompatActivity {
             Bitmap bitmap;
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+                groupImageDrawable = new BitmapDrawable(getResources(), bitmap);
                 mGroupImage.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
@@ -94,7 +106,17 @@ public class NameGroupActivity extends AppCompatActivity {
             return false;
         }
         else{
-            //Check for image here when image icon setting works. Set generic image if no image chosen.
+            newGroup = new Group(mGroupName.getText().toString());
+            if(!TextUtils.isEmpty(mGroupDescription.getText().toString())){
+                newGroup.setDescription(mGroupDescription.getText().toString());
+            }
+            if(groupImageDrawable != null){
+                newGroup.setGroupImage(groupImageDrawable);
+            }
+            else{
+                newGroup.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.group, null));
+            }
+            getModel().getUser().addGroup(newGroup);
             return true;
         }
     }
@@ -107,10 +129,7 @@ public class NameGroupActivity extends AppCompatActivity {
 
     private void startNextStep(Class givenClass){
         Intent intent = new Intent(this, givenClass);
-        intent.putExtra("Group Name",mGroupName.getText().toString());
-        if(!TextUtils.isEmpty(mGroupDescription.getText().toString())) {
-            intent.putExtra("Group Description", mGroupName.getText().toString());
-        }
+        intent.putExtra("groupID", newGroup.getGroupID());
         startActivity(intent);
     }
 }

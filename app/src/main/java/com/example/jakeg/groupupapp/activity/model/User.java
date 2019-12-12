@@ -4,11 +4,11 @@ import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Observable;
 import java.util.UUID;
 
-public class User {
+public class User extends Observable {
     private String userID;
     private String username;
     private String emailAddress;
@@ -38,6 +38,7 @@ public class User {
 
     public void removeGroup(String groupID){
         groups.remove(groupID);
+        contactObservers();
     }
 
     public Group getGroup(String groupID){
@@ -110,5 +111,10 @@ public class User {
 
     public void setContacts(Map<String, GroupMember> contacts) {
         this.contacts = contacts;
+    }
+
+    private void contactObservers(){
+        setChanged();
+        notifyObservers();
     }
 }

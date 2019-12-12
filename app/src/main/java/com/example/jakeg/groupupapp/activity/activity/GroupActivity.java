@@ -50,6 +50,8 @@ public class GroupActivity extends AppCompatActivity {
     private List<GroupMember> groupMembers = new ArrayList<>();
     private GroupMember userGroupMember;
 
+    private Button mDeleteGroupButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +72,7 @@ public class GroupActivity extends AppCompatActivity {
         mAlertButton.setOnClickListener(new ImageView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showMyDialog(context);
+                showAlertDialogue(context);
             }
         });
 
@@ -131,9 +133,17 @@ public class GroupActivity extends AppCompatActivity {
         }
 
         setGroupList();
+
+        mDeleteGroupButton = findViewById(R.id.delete_button);
+        mDeleteGroupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDeleteGroupDialogue(context);
+            }
+        });
     }
 
-    private void showMyDialog(final Context context) {
+    private void showAlertDialogue(final Context context) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.alert_dialogue);
@@ -151,7 +161,7 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 group.setNotification("0");
-                Toast.makeText(context, "Notification alert has been set to at the time of the event.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Notification alert has been set to signal at the time of the event.", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -206,8 +216,46 @@ public class GroupActivity extends AppCompatActivity {
          * this will cover 85% of the screen (85% width and 85% height)
          */
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int dialogWidth = (int)(displayMetrics.widthPixels * 0.473);
-        int dialogHeight = (int)(displayMetrics.heightPixels * 0.45);
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.48);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.47);
+        dialog.getWindow().setLayout(dialogWidth, dialogHeight);
+
+        dialog.show();
+    }
+
+    private void showDeleteGroupDialogue(final Context context) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.delete_dialogue);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
+
+        TextView mYesDelete = dialog.findViewById(R.id.yes_delete);
+        TextView mNoDelete = dialog.findViewById(R.id.no_delete);
+
+        mYesDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getModel().getUser().removeGroup(group.getGroupID());
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        mNoDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        /**
+         * if you want the dialog to be specific size, do the following
+         * this will cover 85% of the screen (85% width and 85% height)
+         */
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.375);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.14);
         dialog.getWindow().setLayout(dialogWidth, dialogHeight);
 
         dialog.show();

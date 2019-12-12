@@ -10,31 +10,48 @@
         android:layout_height="wrap_content"
         android:textAlignment="center">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Set a reminder for:"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+
         <Button
             android:id="@+id/at_time_of_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="At time of event "
-            style="?android:attr/borderlessButtonStyle"
-            />
+            style="?android:attr/borderlessButtonStyle" />
+
         <Button
             android:id="@+id/five_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="5 minutes before "
-            style="?android:attr/borderlessButtonStyle"
-            />
+            style="?android:attr/borderlessButtonStyle" />
+
         <Button
             android:id="@+id/ten_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="10 minutes before "
-            style="?android:attr/borderlessButtonStyle"
-            />
+            style="?android:attr/borderlessButtonStyle" />
+
         <Button
             android:id="@+id/fifteen_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="15 minutes before "
             style="?android:attr/borderlessButtonStyle"
             />
@@ -42,17 +59,19 @@
             android:id="@+id/thirty_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="30 minutes before "
-            style="?android:attr/borderlessButtonStyle"
-            />
+            style="?android:attr/borderlessButtonStyle" />
+
         <Button
             android:id="@+id/hour_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
             android:text="1 hour before "
-            style="?android:attr/borderlessButtonStyle"
-            />
-
+            style="?android:attr/borderlessButtonStyle" />
 
     </LinearLayout>
 </LinearLayout>

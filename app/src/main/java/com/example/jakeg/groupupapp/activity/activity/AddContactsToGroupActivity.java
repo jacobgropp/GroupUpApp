@@ -36,45 +36,36 @@ public class AddContactsToGroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts_to_group);
 
-        String newGroupName = getIntent().getExtras().getString("Group Name");
-        String newGroupDescription = getIntent().getExtras().getString("Group Description");
+        String newGroupID = getIntent().getExtras().getString("groupID");
 
-        mNewGroup = new Group(newGroupName);
+        mNewGroup = getModel().getUser().getGroup(newGroupID);
 
         //First add the current user to the new group.
-
         mNewGroup.addGroupMember(getModel().getUser().getUserGroupMember());
 
-        //Add group description
-        mNewGroup.setDescription(newGroupDescription);
-
-        mBackButton = (ImageView) findViewById(R.id.add_contacts_back_button);
+        mBackButton = findViewById(R.id.add_contacts_back_button);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getModel().getUser().removeGroup(mNewGroup.getGroupID());
                 finish();
             }
         });
 
-        mNextButton = (TextView) findViewById(R.id.add_contacts_next_button);
+        mNextButton = findViewById(R.id.add_contacts_next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(addGroupMembers()){
-                    mNewGroup.setGroupImage(ResourcesCompat.getDrawable(getResources(), R.drawable.group, null));
-                    getModel().getUser().addGroup(mNewGroup);
-                    startNextStep(SetGroupMeetingTimeActivity.class);
-                }
+                addGroupMembers();
+                startNextStep(SetGroupMeetingTimeActivity.class);
             }
         });
 
-        mCheckBoxJoeAllen = (CheckBox) findViewById(R.id.checkBox_joe_allen);
-        mCheckBoxKatieAllen = (CheckBox) findViewById(R.id.checkBox_katie_allen);
-        mCheckBoxMorganBlake = (CheckBox) findViewById(R.id.checkBox_morgan_blake);
-        mCheckBoxPaulKeith = (CheckBox) findViewById(R.id.checkBox_paul_keith);
-        mCheckBoxJessicaTaylor = (CheckBox) findViewById(R.id.checkBox_jessica_taylor);
-        mCheckBoxAlanTuttle = (CheckBox) findViewById(R.id.checkBox_alan_tuttle);
+        mCheckBoxJoeAllen = findViewById(R.id.checkBox_joe_allen);
+        mCheckBoxKatieAllen = findViewById(R.id.checkBox_katie_allen);
+        mCheckBoxMorganBlake = findViewById(R.id.checkBox_morgan_blake);
+        mCheckBoxPaulKeith = findViewById(R.id.checkBox_paul_keith);
+        mCheckBoxJessicaTaylor = findViewById(R.id.checkBox_jessica_taylor);
+        mCheckBoxAlanTuttle = findViewById(R.id.checkBox_alan_tuttle);
 
     }
 

@@ -51,6 +51,8 @@ public class GroupListActivity extends AppCompatActivity
 
         getModel().addObserver(this);
 
+        getModel().getUser().addObserver(this);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -86,22 +88,7 @@ public class GroupListActivity extends AppCompatActivity
             generateGroups();
         }
 
-        groupListItems = getModel().getUser().getGroups();
-        ArrayAdapter<Group> groupListAdapter = new GroupArrayAdapter(this, 0, groupListItems);
-
-        ListView mGroupList = findViewById(R.id.group_list);
-        mGroupList.setAdapter(groupListAdapter);
-
-        //Handle click events for the ListView items
-        AdapterView.OnItemClickListener groupListViewListener = new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Group group = groupListItems.get(position);
-                viewGroupFromList(group);
-
-            }
-        };
-        mGroupList.setOnItemClickListener(groupListViewListener);
+        setListView();
 
     }
 
@@ -113,6 +100,12 @@ public class GroupListActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -145,6 +138,27 @@ public class GroupListActivity extends AppCompatActivity
         userEmail.setText(user.getEmailAddress());
         TextView userPhonenumber = mHeaderView.findViewById(R.id.user_phone_number);
         userPhonenumber.setText(user.getPhoneNumber());
+
+        setListView();
+    }
+
+    private void setListView(){
+        groupListItems = getModel().getUser().getGroups();
+        ArrayAdapter<Group> groupListAdapter = new GroupArrayAdapter(this, 0, groupListItems);
+
+        ListView mGroupList = findViewById(R.id.group_list);
+        mGroupList.setAdapter(groupListAdapter);
+
+        //Handle click events for the ListView items
+        AdapterView.OnItemClickListener groupListViewListener = new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Group group = groupListItems.get(position);
+                viewGroupFromList(group);
+
+            }
+        };
+        mGroupList.setOnItemClickListener(groupListViewListener);
     }
 
     private void openUserProfile(){
